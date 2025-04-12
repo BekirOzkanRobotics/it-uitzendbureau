@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { db } from '../../lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function OpdrachtForm() {
   const { language } = useLanguage();
@@ -39,10 +41,13 @@ export default function OpdrachtForm() {
     setSubmitError('');
 
     try {
-      // Simuleer een API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-
-      console.log('Opdracht aanvraag:', formData);
+      // Opslaan van de opdracht in Firestore
+      await addDoc(collection(db, 'opdrachten'), {
+        ...formData,
+        taal: language,
+        tijdstempel: serverTimestamp(),
+        status: 'nieuw'
+      });
       
       // Formulier succesvol verzonden
       setSubmitSuccess(true);

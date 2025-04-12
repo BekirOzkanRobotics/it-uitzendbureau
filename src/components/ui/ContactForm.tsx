@@ -1,7 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { useLanguage } from '../../contexts/LanguageContext';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { trackEvent } from '@/lib/analytics';
 
 export default function ContactForm() {
   const { language } = useLanguage();
@@ -32,16 +35,27 @@ export default function ContactForm() {
     setSubmitError('');
 
     try {
-      // Simuleer een API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Track formulier versturen gestart event
+      trackEvent('contact_form_submit_start', {
+        subject: formData.onderwerp,
+        language: language
+      });
 
-      // Een e-maillink openen als voorbeeld van functionaliteit
-      const subject = encodeURIComponent(`Contact: ${formData.onderwerp}`);
-      const body = encodeURIComponent(
-        `Naam: ${formData.naam}\nE-mail: ${formData.email}\nTelefoonnummer: ${formData.telefoonnummer}\n\n${formData.bericht}`
-      );
-      window.open(`mailto:contact@it-uitzendbureau.nl?subject=${subject}&body=${body}`);
+      // Opslaan van het contactbericht in Firestore
+      const docRef = await addDoc(collection(db, 'contactberichten'), {
+        ...formData,
+        taal: language,
+        tijdstempel: serverTimestamp(),
+      });
 
+      // Track succesvol versturen event
+      trackEvent('contact_form_submit_success', {
+        subject: formData.onderwerp,
+        language: language,
+        form_id: docRef.id
+      });
+
+      // Toon success en reset form
       setSubmitSuccess(true);
       // Reset het formulier
       setFormData({
@@ -53,6 +67,14 @@ export default function ContactForm() {
       });
     } catch (error) {
       console.error('Error submitting form:', error);
+      
+      // Track fout bij versturen event
+      trackEvent('contact_form_submit_error', {
+        error_message: error instanceof Error ? error.message : 'Unknown error',
+        subject: formData.onderwerp,
+        language: language
+      });
+
       setSubmitError(
         language === 'nl'
           ? 'Er is een fout opgetreden bij het verzenden van je bericht. Probeer het later opnieuw.'

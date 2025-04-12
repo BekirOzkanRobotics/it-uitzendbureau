@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { db } from '../../lib/firebase';
+import { collection, addDoc, serverTimestamp, query, where, getDocs } from 'firebase/firestore';
 
 export default function NieuwsbriefForm() {
   const { language } = useLanguage();
@@ -42,16 +44,31 @@ export default function NieuwsbriefForm() {
     setSubmitError('');
     
     try {
-      // Simuleren van een API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Controleer of de e-mail al bestaat
+      const nieuwsbriefRef = collection(db, 'nieuwsbrief');
+      const emailQuery = query(nieuwsbriefRef, where("email", "==", email));
+      const existingEmails = await getDocs(emailQuery);
       
-      // Hier zou normaal gesproken een API call worden gedaan
-      console.log('Nieuwsbrief aanmelding voor:', { 
-        email, 
-        types: Object.entries(selectedTypes)
-          .filter(([_, selected]) => selected)
-          .map(([type]) => type) 
-      });
+      if (!existingEmails.empty) {
+        // E-mail bestaat al, update de voorkeuren
+        const docId = existingEmails.docs[0].id;
+        await addDoc(collection(db, 'nieuwsbrief'), {
+          email,
+          voorkeuren: selectedTypes,
+          taal: language,
+          tijdstempel: serverTimestamp(),
+          bijgewerkt: true
+        });
+      } else {
+        // Nieuwe inschrijving
+        await addDoc(collection(db, 'nieuwsbrief'), {
+          email,
+          voorkeuren: selectedTypes,
+          taal: language,
+          tijdstempel: serverTimestamp(),
+          bijgewerkt: false
+        });
+      }
       
       // Toon success en reset form
       setSubmitSuccess(true);
