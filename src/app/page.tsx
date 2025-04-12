@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
+      <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white py-24 pt-28">
         <div className="container mx-auto px-4 z-10 relative">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-10 md:mb-0">
@@ -41,7 +41,7 @@ export default function Home() {
       </section>
 
       {/* Voordelen Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-[color:var(--text-dark)] dark:text-[color:var(--text-light)]">
             {t('home.benefits.title')}
@@ -87,7 +87,7 @@ export default function Home() {
       </section>
 
       {/* Nieuwsbrief Section */}
-      <section className="py-16 bg-white dark:bg-gray-900">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-6 text-[color:var(--text-dark)] dark:text-[color:var(--text-light)]">
@@ -102,7 +102,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-50 dark:bg-blue-900">
+      <section className="py-20 bg-blue-50 dark:bg-blue-900">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6 text-[color:var(--primary-color)] dark:text-blue-300">
             {t('home.cta.title')}

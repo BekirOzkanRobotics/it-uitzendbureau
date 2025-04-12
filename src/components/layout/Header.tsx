@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-10 dark:bg-gray-900">
+    <header className="bg-white shadow-md sticky top-0 z-50 dark:bg-gray-900 w-full">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="text-2xl font-bold text-[color:var(--primary-color)] hover:no-underline">
           IT-Uitzendbureau
@@ -61,7 +61,7 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 py-4 px-4 shadow-md">
+        <div className="md:hidden bg-white dark:bg-gray-900 py-4 px-4 shadow-md absolute w-full z-50">
           <nav className="flex flex-col space-y-4">
             <Link 
               href="/" 
