@@ -60,14 +60,6 @@ export default function Header() {
               {t('nav.postJob')}
             </Link>
             <Link 
-              href="/nieuwsbrief" 
-              className={`text-[color:var(--text-dark)] dark:text-[color:var(--text-light)] hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${
-                pathname === '/nieuwsbrief' ? 'font-semibold' : ''
-              }`}
-            >
-              {t('nav.newsletter')}
-            </Link>
-            <Link 
               href="/contact" 
               className={`text-[color:var(--text-dark)] dark:text-[color:var(--text-light)] hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${
                 pathname === '/contact' ? 'font-semibold' : ''
@@ -123,14 +115,6 @@ export default function Header() {
                 }`}
               >
                 {t('nav.postJob')}
-              </Link>
-              <Link 
-                href="/nieuwsbrief" 
-                className={`text-[color:var(--text-dark)] dark:text-[color:var(--text-light)] hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${
-                  pathname === '/nieuwsbrief' ? 'font-semibold' : ''
-                }`}
-              >
-                {t('nav.newsletter')}
               </Link>
               <Link 
                 href="/contact" 

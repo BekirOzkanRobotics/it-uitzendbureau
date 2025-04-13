@@ -24,7 +24,6 @@ const translations: Translations = {
     // Navigation
     'nav.home': 'Home',
     'nav.postJob': 'Opdracht Plaatsen',
-    'nav.newsletter': 'Nieuwsbrief',
     'nav.contact': 'Contact',
     
     // Home page
@@ -39,8 +38,6 @@ const translations: Translations = {
     'home.benefits.matching.desc': 'Wij zorgen ervoor dat uw project gekoppeld wordt aan de professional met de juiste vaardigheden.',
     'home.benefits.process.title': 'Eenvoudig en efficiënt proces',
     'home.benefits.process.desc': 'Minimale administratie, snelle afhandeling en directe communicatie voor een optimaal resultaat.',
-    'home.newsletter.title': 'Blijf op de hoogte',
-    'home.newsletter.subtitle': 'Ontvang de nieuwste IT-vacatures, trends en tips direct in je inbox.',
     'home.cta.title': 'Klaar om uw project te starten?',
     'home.cta.desc': 'Vul eenvoudig het opdrachtformulier in en wij nemen snel contact met u op om uw behoeften te bespreken.',
     'home.cta.button': 'Plaats nu uw opdracht',
@@ -53,10 +50,6 @@ const translations: Translations = {
     'contact.address': 'Adres',
     'contact.form.title': 'Stuur ons een bericht',
     
-    // Newsletter page
-    'newsletter.title': 'Schrijf je in voor onze nieuwsbrief',
-    'newsletter.subtitle': 'Ontvang regelmatig updates over nieuwe vacatures, ontwikkelingen in de IT-sector en handige tips voor professionals.',
-    
     // Language selector
     'language.select': 'Selecteer taal',
     'language.nl': 'Nederlands',
@@ -66,7 +59,6 @@ const translations: Translations = {
     // Navigation
     'nav.home': 'Home',
     'nav.postJob': 'Post Job',
-    'nav.newsletter': 'Newsletter',
     'nav.contact': 'Contact',
     
     // Home page
@@ -81,8 +73,6 @@ const translations: Translations = {
     'home.benefits.matching.desc': 'We ensure that your project is connected to the professional with the right skills.',
     'home.benefits.process.title': 'Simple and efficient process',
     'home.benefits.process.desc': 'Minimal administration, quick processing and direct communication for optimal results.',
-    'home.newsletter.title': 'Stay up to date',
-    'home.newsletter.subtitle': 'Receive the latest IT job openings, trends and tips directly in your inbox.',
     'home.cta.title': 'Ready to start your project?',
     'home.cta.desc': 'Simply fill out the job form and we will contact you quickly to discuss your needs.',
     'home.cta.button': 'Post your job now',
@@ -94,10 +84,6 @@ const translations: Translations = {
     'contact.phone': 'Phone',
     'contact.address': 'Address',
     'contact.form.title': 'Send us a message',
-    
-    // Newsletter page
-    'newsletter.title': 'Subscribe to our newsletter',
-    'newsletter.subtitle': 'Receive regular updates about new job opportunities, developments in the IT sector and useful tips for professionals.',
     
     // Language selector
     'language.select': 'Select language',

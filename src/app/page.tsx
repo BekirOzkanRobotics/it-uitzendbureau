@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaLaptop, FaUserTie, FaCheckCircle } from "react-icons/fa";
-import NieuwsbriefForm from "../components/ui/NieuwsbriefForm";
 import { useLanguage } from "../contexts/LanguageContext";
 
 export default function Home() {
@@ -82,21 +81,6 @@ export default function Home() {
                 {t('home.benefits.process.desc')}
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Nieuwsbrief Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-6 text-[color:var(--text-dark)] dark:text-[color:var(--text-light)]">
-              {t('home.newsletter.title')}
-            </h2>
-            <p className="text-center text-gray-600 dark:text-gray-400 mb-8">
-              {t('home.newsletter.subtitle')}
-            </p>
-            <NieuwsbriefForm />
           </div>
         </div>
       </section>
